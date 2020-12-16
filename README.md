@@ -13,4 +13,6 @@
 
 6. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
 
-7. For any other Query please contact to +91 8745951248 (my what's app no. only for project related query) or mail me the Query at armandevilk282004@gmail.com
+7. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
+
+8. For any other Query please contact to +91 8745951248 (my what's app no. only for project related query) or mail me the Query at armandevilk282004@gmail.com
