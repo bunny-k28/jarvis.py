@@ -11,4 +11,6 @@
 5. Please note that, If you think that there is some mistake in any program then please commit that mistake there or if you think that you can fix that mistake then please fix it
   and commit there that, "there was a mistake on <no. of the line> line which i fixed"
 
-6. For any other Query please contact to +91 8745951248 (my what's app no. only for project related query) or mail me the Query at armandevilk282004@gmail.com
+6. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
+
+7. For any other Query please contact to +91 8745951248 (my what's app no. only for project related query) or mail me the Query at armandevilk282004@gmail.com
