@@ -2,7 +2,7 @@
 1. This is a python program in which we are making a "AI type" program names the Jarvis.
 
 2. We are making this program more advance day by day by adding new security or some other programs in it, Like auot code or the password generator, auto sentence 
-  earning (https://github.com/bunny-k28/jarvis.py/auto word gen..py/), smart search, face and object detection, and many more...
+  earning (see the auto word gen..py file), smart search, face and object detection, and many more...
   
 3. Please try to contribute your ideas for this program to make this realy smart and advance program like jarvis which Tony Stark had in iron-man movie of Marvals.
 
