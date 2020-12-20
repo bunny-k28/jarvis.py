@@ -6,6 +6,7 @@ import pyttsx3 as p3
 # arduino
 board = pf.Arduino('COM8')
 board.digital[13].mode = pf.OUTPUT
+board.digital[13].mode = pf.OUTPUT
 
 
 # voice
@@ -41,10 +42,14 @@ if __name__ == '__main__':
 
         query = takecommand().lower()
 
-        if ('on' in query) and ('led' in query):
-            board.digital[13].write(1)
+        if ('on' in query) and ('light' in query):
+            board.digital[7].write(0) #for relay 0 is 1(or on)
             speak('led have been turned on')
 
-        elif ('off' in query) and ('led' in query):
-            board.digital[13].write(0)
-            speak('led have been turned off')
+        elif ('off' in query) and ('light' in query):
+            board.digital[7].write(1) #for relay 1 is 0(or off)
+            speak('fan have been turned off')
+            
+        elif ('on' in query) and ('fan' in query):
+            board.digital[8].write(0)
+            speak('fan have been turned off')
