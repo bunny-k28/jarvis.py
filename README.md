@@ -14,8 +14,10 @@
 
 6. The .py file (auto word gen) needs a litte bit of work on it before we add build our main jarvis program. To work on this you have to understand the whole main program (jarvis.py) and then you have to understand the "auto word gen" program. Please try to make a team to work on whole 'jarvis' program.
 
-7. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
+7. Please note that, this repositery have a text file named "firmata file". This file contains a Arduino program which has to be pasted in the Arduino text editer and has to be uploaded to the Arduino borad for the home automation prototype/project.
 
-8. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
+8. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
 
-9. For any other Query please mail me the Query at armandevilk282004@gmail.com
+9. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
+
+10. For any other Query please mail me the Query at armandevilk282004@gmail.com
