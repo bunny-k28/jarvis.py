@@ -12,8 +12,10 @@
 5. Please note that, If you think that there is some mistake in any program then please commit that mistake there or if you think that you can fix that mistake then please fix it
   and commit there that, "there was a mistake on <no. of the line> line which i fixed"
 
-6. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
+6. The .py file (auto word gen) needs a litte bit of work on it before we add build our main jarvis program. To work on this you have to understand the whole main program (jarvis.py) and then you have to understand the "auto word gen" program. Please try to make a team to work on whole 'jarvis' program.
 
-7. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
+7. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
 
-8. For any other Query please contact to +91 8745951248 (my what's app no. only for project related query) or mail me the Query at armandevilk282004@gmail.com
+8. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
+
+9. For any other Query please mail me the Query at armandevilk282004@gmail.com
