@@ -16,8 +16,10 @@
 
 7. Please note that, this repositery have a text file named "firmata file". This file contains a Arduino program which has to be pasted in the Arduino text editer and has to be uploaded to the Arduino borad for the home automation prototype/project.
 
-8. We have another code or program file which is there on my git called the kiwi.py (https://github.com/bunny-k28/kiwi.py/) which has to be used in this project.
+8. The other programs which we are going to use in our project are:-
+  
+        8.1. kiwi.py (https://github.com/bunny-k28/kiwi.py/)
+        8.2. TensorFlow (https://github.com/bunny-k28/TensorFlow/)
+        8.3. openCV (https://github.com/bunny-k28/openCV/)
 
-9. We also have a AI module called tensorflow program in my git account (https://github.com/bunny-k28/TensorFlow/). Please go and check that.
-
-10. For any other Query please mail me the Query at armandevilk282004@gmail.com
+9. For any other Query please mail me the Query at armandevilk282004@gmail.com or message me in the what's group (if you are not in the group then please mail me)
