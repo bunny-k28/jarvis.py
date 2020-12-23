@@ -22,4 +22,4 @@
         8.2. TensorFlow (https://github.com/bunny-k28/TensorFlow/)
         8.3. openCV (https://github.com/bunny-k28/openCV/)
 
-9. For any other Query please mail me the Query at armandevilk282004@gmail.com or message me in the what's group (if you are not in the group then please mail me)
+9. For any other Query please mail me the Query at armandevilk282004@gmail.com or message me in the what's app group (if you are not in the group then please mail me)
