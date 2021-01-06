@@ -23,3 +23,5 @@
         8.3. openCV (https://github.com/bunny-k28/openCV/)
 
 9. For any other Query please mail me the Query at armandevilk282004@gmail.com or message me in the what's app group (if you are not in the group then please mail me)
+
+10. Join my team "The_Nobe_Coders" (https://repl.it/teams/join/jvqxcztjtqdtkduwtbzwqbwmnywberhn-TheNobeCoders) on repl.it and be a member to make this amazing program with other coders in team...
