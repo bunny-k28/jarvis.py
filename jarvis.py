@@ -11,12 +11,6 @@ import smtplib
 import cv2
 import random
 
-
-main_music_dir = 'C:\\Users\\Lenovo\\Desktop\\rishi\\Music\\player list'
-playlist_path = 'C:\\Users\\Lenovo\\Desktop\\rishi\\Music'
-songs_list = os.listdir(main_music_dir)
-music_picker = random.randint(1, 17)
-change_music = random.randint(1, 17)
 ran_ask = random.randint(1, 3)
 
 music_info_ask = {1: 'sir!, you liked this song ?', 2: 'sir!, should i add this song to your favorite playlist ?',
