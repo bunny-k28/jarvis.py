@@ -11,10 +11,16 @@ import smtplib
 import cv2
 import random
 
-ran_ask = random.randint(1, 3)
+#paths
+my_folder = 'C:\\Users\\Lenovo\\Desktop\\rishi'
+python_folder = 'C:\\Users\\Lenovo\\PycharmProjects'
+
+#path listing
+# my_folder_list = os.listdir(my_folder)
+# py_folder_list = os.listdir(python_folder)
 
 music_info_ask = {1: 'sir!, you liked this song ?', 2: 'sir!, should i add this song to your favorite playlist ?',
-                   3: 'sir!, what are you doing right now ?'}
+                  3: 'sir!, what are you doing right now ?'}
 
 # code to open camera
 cap = cv2.VideoCapture(0)
@@ -22,32 +28,95 @@ cap.set(3, 640)
 cap.set(4, 480)
 cap.set(10, 130)
 
+# delay function
+def load(sec):
+    for i in range(sec):
+        compile(filename='jarvis.py')
+        print('.', end='')
+        delay(1)
+    print('/' + 'done')
 
-ask_task = input('what do you want me to do for you:- ').lower()
+def static_search():
+    if ('search about' in query) or ('tell me about' in query) or ('who is' in query):
+        try:
+            if 'search about' in query:
+                search = query.replace('search about', '')
+
+            elif 'tell me about' in query:
+                search = query.replace('tell me about', '')
+
+            elif 'who is' in query:
+                search = query.replace('who is', '')
+
+            speak(f'searching! about {search}')
+            results = wk.summary(search, sentences=2)
+            speak('i found something related to your search')
+            print(results)
+            speak('so!, according to wikipedia')
+            speak(results)
+
+        except Exception as e:
+            print(e)
+            speak('trying to search on google...')
+            try:
+                speak('i found some useful websites')
+                speak('check those out for your search')
+                openweb(search, tld='.com', num=10, stop=10, pause=2)
+
+            except Exception as e:
+                speak("i'm not able to search!, sorry sir")
+
+ask_task = input('task:- ').lower()
 if 'initialize jarvis' in ask_task:
-    print('wait for a moment....')
-    wait(3)
+    print('wait for a moment', end='')
+    load(5)
     try:
-        take_assistance = 0
-        print('jarvis has been initialized...')
+        try:
+            take_assistance = 0
+            print('jarvis has been initialized...')
 
-    except Exception as e:
-        print(e)
-        print("not able to initialize jarvis")
+        except Exception as e:
+            print(e)
+            print("not able to initialize jarvis")
+
+    except NameError as NE:
+        print(f'PROGRAM NOT FOUND DUE TO {NE}')
 
 elif 'initialize friday' in ask_task:
-    print('wait for a moment....')
-    wait(3)
+    print('preparing the engine', end='')
+    load(5)
     try:
-        take_assistance = 1
-        print('friday has been initialized...')
+        try:
+            take_assistance = 1
+            print('friday has been initialized...')
 
-    except Exception as e:
-        print(e)
-        print('not able to initialize friday')
+        except Exception as e:
+            print(e)
+            print('not able to initialize friday')
+
+    except NameError as NE:
+        print(f'PROGRAM NOT FOUND DUE TO {NE}')
+
+elif 'open' in ask_task:
+    search = ask_task.replace('open ', '')
+    print(f'opening {search}')
+    delay(2)
+    try:
+        search = 'www.' + search + '.com'
+        web.open(search)
+    except:
+        search = ask_task.replace('open ', '')
+        search = 'https://' + search + '.com/'
+
+
+elif ('search about' in ask_task) or ('tell me about' in ask_task) or ('who is' in ask_task):
+    static_search()
 
 else:
-    print('no such command, sorry')
+    print('running default task')
+    delay(1)
+    print('initializing jarvis')
+    load(3)
 
 # setting engine for AI's voice (jarvis)
 engine = p3.init('sapi5')
@@ -58,8 +127,8 @@ com_voice_change = engine.setProperty('voice', voices[take_assistance].id)
 
 # dictionary of mail-id (in values) with there names (in keys)
 mail_id = {'to rishi': 'dasarman2004@gmail.com', 'to my aunt': 'saswatip9@gmail.com',
-        'to me': 'armandevilk282004@gmail.com', 'to my dad': 'aniruddhad955@gmail.com',
-        'to my brother': 'devansh.das07@gmail.com'}
+           'to me': 'armandevilk282004@gmail.com', 'to my dad': 'aniruddhad955@gmail.com',
+           'to my brother': 'devansh.das07@gmail.com'}
 
 
 # keys of dictionary (mail) stored in the 'k' variable
@@ -69,7 +138,7 @@ mail_keys = mail_id.keys()
 # text files
 pass_file = open('text file')
 read_pass_file = pass_file.read()
-
+pass_file.close()
 
 # function defined for the speech of jarvis
 def speak(audio):
@@ -152,58 +221,44 @@ def sendmail(to, content):
     server.close()
 
 
-# function for music
-def run_music():
-    speak('playing songs for you..')
-    os.startfile(os.path.join(main_music_dir, songs_list[music_picker]))
-    speak(music_info_ask[ran_ask])
-    take = takecommand().lower()
-    if ran_ask == 1:
-        if 'yes' in take:
-            speak("enjoy your music, i'll not disturb you")
-
-        elif ('no' in take) or ('chnage' in take):
-            speak("changing the music")
-            try:
-                os.startfile(os.path.join(main_music_dir, songs_list[change_music]))
-
-            except Exception as e:
-                speak('i am unable to change the music')
-
-        elif 'favorite' in take:
-            speak('adding this song to you favorite playlist')
-            try:
-                os.mkdir(os.path.join(playlist_path, 'favorite'))
-                shutil.move(songs_list[music_picker], 'C:\\Users\\Lenovo\\Desktop\\rishi\\Music\\favorite')
-                speak('your music has added to your favorite playlist')
-
-            except Exception as e:
-                speak('unable to add the the music into the playlist')
-
-    elif ran_ask == 2:
-        if 'yes' in take:
-            speak('adding this song to you favorite playlist')
-            try:
-                os.mkdir(os.path.join(playlist_path, 'favorite'))
-                shutil.move(songs_list[music_picker], 'C:\\Users\\Lenovo\\Desktop\\rishi\\Music\\favorite')
-                speak('your music has added to your favorite playlist')
-
-            except Exception as e:
-                speak('unable to add the the music into the playlist')
-
-        elif 'no' in take:
-            speak('then what should you want me to do ?')
-            take = takecommand().lower()
-            if 'keep playing' in take:
-                pass
-
 
 # the main code starts from here
 if __name__ == '__main__':
 
-    print('verify yourself!...')
-    pincode = input('password:- ')
-    if pincode in read_pass_file:
+    MyApp().run()
+
+    num_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    low_alpha_list = ['a', 'b', 'c', 'd', 'e', 'f']
+    up_alpha_list = ['A', 'B', 'C', 'D', 'E', 'F']
+
+    l1 = num_list + low_alpha_list
+    l2 = num_list + up_alpha_list
+
+    random.shuffle(l1)
+    random.shuffle(l2)
+
+    choise = (l1, l2)
+    ran_choise = random.choice(choise)
+
+    code = ''.join(ran_choise)
+    print(code)
+
+    '''
+    print('sending a new generated password to your mail')
+    try:
+        content = code
+        to = 'armandevilk282004@gmail.com'  # you can use multiple mail id(s) using and statement
+        sendmail(to, content)
+        print('code has been sent to your mail')
+    except Exception as e:
+        print(e)
+        print("i'm not able to send the code to your mail...")
+        '''
+
+
+    login = input('verify yourself:- ')
+
+    if (login == code) or (login == read_pass_file):
 
         if take_assistance == 0:
             wishme()
@@ -213,16 +268,34 @@ if __name__ == '__main__':
         while True:
             # if 1:
             query = takecommand().lower()
-            if ('tell' in query) or ('what is' in query):
-                speak('searching results for you... ')
-                if 'tell' in query:
-                    query = query.replace('tell', '')
-                elif 'what is' in query:
-                    query = query.replace('what is', '')
-                results = wk.summary(query, sentences=2)
-                speak('according to my search...')
-                print(results)
-                speak(results)
+            if ('search about' in query) or ('tell me about' in query) or ('who is' in query):
+                try:
+                    if 'search about' in query:
+                        search = query.replace('search about', '')
+
+                    elif 'tell me about' in query:
+                        search = query.replace('tell me about', '')
+
+                    elif 'who is' in query:
+                        search = query.replace('who is', '')
+
+                    speak(f'searching! about {search}')
+                    results = wk.summary(search, sentences=2)
+                    speak('i found something related to your search')
+                    print(results)
+                    speak('so!, according to wikipedia')
+                    speak(results)
+
+                except Exception as e:
+                    print(e)
+                    speak('trying to search on google...')
+                    try:
+                        speak('i found some useful websites')
+                        speak('check those out for your search')
+                        openweb(search, tld='.com', num=10, stop=10, pause=2)
+
+                    except Exception as e:
+                        speak("i'm not able to search!, sorry sir")
 
             elif 'speech engine' in query:
                 speak('okay sir, wait for a minute,    which speech engine you want to upload?')
@@ -236,20 +309,47 @@ if __name__ == '__main__':
                     com_voice_change = engine.setProperty('voice', voices[0].id)
                     wishme_j()
 
-            elif 'open youtube' in query:
-                web.open('youtube.com')
-                speak('opening youtube for you!')
+            elif 'open' in query:  # and (('system' in query) or ('pc' in query))
+                search = query.replace('open', '')
+                search = search.replace(' ', '')
+                #
+                # speak('first search in your system...')
+                # if search in my_folder_list:
+                #     try:
+                #
+                #         os.startfile(my_folder)
+                #         speak('i sound something in your folder')
+                #
+                #     except FileNotFoundError as e:
+                #         print(e)
+                #         speak('not able to open folder')
+                #
+                #     speak('not able to find')
+                #     speak('second search in your system...')
+                #
+                # elif search in py_folder_list:
+                #     try:
+                #         os.startfile(python_folder)
+                #         speak('i found something in your python folder')
+                #
+                #     except FileNotFoundError as e:
+                #         print(e)
+                #         speak('again not able to open')
+                #
+                #     speak('again not able to find')
+                #
+                # else:
+                speak('searching on browser')
+                speak('trying first method...')
+                try:
+                    search = 'www.' + search + '.com'
+                    web.open(search)
+                    speak('i found this on browser')
 
-            elif 'open google' in query:
-                web.open('google.com')
-                speak('taking access for google!')
-
-            elif 'stack overflow' in query:
-                web.open('stackoverflow.com')
-                speak('opening stack overflow!')
-
-            elif ('play music' in query) or ('play songs' in query):
-                run_music()
+                except Exception as e:
+                    print(e)
+                    speak('trying second method...')
+                    search = 'https://' + search + '.com/'
 
             elif 'the time' in query:
                 strTime = dt.datetime.now().strftime('%H:%M')
@@ -285,7 +385,7 @@ if __name__ == '__main__':
             elif 'day today' in query:
                 speak("as usual sir!, i'm always learning something new")
 
-            elif 'what did you learn today' in query:
+            elif 'what did you learn' in query:
                 h = int(dt.datetime.now().hour)
                 if h >= 0 and h < 12:
                     speak("i've learned about human brain")
@@ -308,10 +408,6 @@ if __name__ == '__main__':
 
             elif "i'll talk to you later" in query:
                 speak('sure sir!')
-
-            elif 'open discord' in query:
-                web.open('https://discord.com/channels/@me/718347335654178916')
-                speak('opening discord for you')
 
             elif 'google meeting' in query:
                 speak("sir! i'm starting a google meeting for you")
